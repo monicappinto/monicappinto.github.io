@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Mónica Pinto</title>
+<meta name="description" content="Product & Consulting Manager based in Lisbon. Working at the crossroads of business, product and data." />
+
+<meta property="og:title" content="Mónica Pinto" />
+<meta property="og:description" content="Product & Consulting Manager based in Lisbon." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://www.monicappinto.com/" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter+Tight:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --bg: #f5f1ea;
+    --bg-alt: #ebe5d9;
+    --ink: #1a1a1a;
+    --ink-soft: #444;
+    --ink-mute: #777;
+    --accent: #e8472b;
+    --accent-soft: #ffb8a8;
+    --radius: 4px;
+    --max: 1180px;
+    --gutter: clamp(1.25rem, 4vw, 2.5rem);
+  }
+
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter Tight', system-ui, sans-serif;
+    background:var(--bg);
+    color:var(--ink);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+
+  a{color:inherit; text-decoration:none;}
+  img{max-width:100%; display:block;}
+
+  .container{
+    max-width:var(--max);
+    margin:0 auto;
+    padding:0 var(--gutter);
+    position:relative;
+  }
+
+  /* ===== NAV ===== */
+  nav{
+    position:fixed; top:0; left:0; right:0;
+    z-index:100;
+    padding:1.1rem 0;
+    backdrop-filter:blur(12px);
+    background:rgba(245,241,234,.75);
+    border-bottom:1px solid transparent;
+    transition:border-color .3s ease;
+  }
+  nav.scrolled{border-bottom-color:rgba(26,26,26,.08);}
+  nav .container{
+    display:flex; justify-content:space-between; align-items:center;
+  }
+  .logo{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    font-size:1.15rem;
+    font-style:italic;
+    letter-spacing:-.02em;
+  }
+  .logo span{color:var(--accent);}
+  .nav-links{
+    display:flex; gap:1.8rem;
+    font-size:.875rem;
+    font-weight:500;
+  }
+  .nav-links a{
+    position:relative;
+    transition:color .2s;
+  }
+  .nav-links a::after{
+    content:"";
+    position:absolute; left:0; bottom:-4px;
+    width:0; height:1px;
+    background:var(--accent);
+    transition:width .3s ease;
+  }
+  .nav-links a:hover{color:var(--accent);}
+  .nav-links a:hover::after{width:100%;}
+  @media(max-width:640px){
+    .nav-links{display:none;}
+  }
+
+  /* ===== HERO ===== */
+  .hero{
+    padding:9rem 0 5rem;
+    position:relative;
+  }
+  .hero .eyebrow{
+    display:inline-flex;
+    align-items:center; gap:.6rem;
+    font-size:.75rem;
+    text-transform:uppercase;
+    letter-spacing:.18em;
+    font-weight:600;
+    color:var(--ink-soft);
+    margin-bottom:2.5rem;
+  }
+  .pulse{
+    width:7px; height:7px;
+    background:var(--accent);
+    border-radius:50%;
+    animation:pulse 2s infinite;
+  }
+  @keyframes pulse{
+    0%, 100%{opacity:1; transform:scale(1);}
+    50%{opacity:.4; transform:scale(.85);}
+  }
+
+  .hero h1{
+    font-family:'Fraunces', serif;
+    font-size:clamp(2.6rem, 7.5vw, 5.5rem);
+    font-weight:300;
+    line-height:1;
+    letter-spacing:-.03em;
+    margin-bottom:2rem;
+    max-width:14ch;
+  }
+  .hero h1 em{
+    font-style:italic;
+    font-weight:300;
+    color:var(--accent);
+  }
+
+  .hero-lead{
+    font-size:clamp(1.05rem, 1.4vw, 1.2rem);
+    color:var(--ink-soft);
+    max-width:38rem;
+    line-height:1.65;
+  }
+
+  /* ===== SECTIONS ===== */
+  section{padding:5rem 0; position:relative;}
+  @media(min-width:900px){section{padding:7rem 0;}}
+
+  .section-head{
+    display:flex;
+    align-items:baseline;
+    gap:1.5rem;
+    margin-bottom:3rem;
+    flex-wrap:wrap;
+  }
+  .section-num{
+    font-family:'Fraunces', serif;
+    font-size:.85rem;
+    font-style:italic;
+    color:var(--accent);
+    font-weight:500;
+    white-space:nowrap;
+  }
+  .section-title{
+    font-family:'Fraunces', serif;
+    font-size:clamp(1.8rem, 4vw, 2.8rem);
+    font-weight:400;
+    line-height:1.05;
+    letter-spacing:-.02em;
+  }
+  .section-title em{font-style:italic; color:var(--accent);}
+
+  /* ===== PROJECTS ===== */
+  .projects-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:1.25rem;
+  }
+  @media(min-width:700px){
+    .projects-grid{grid-template-columns:repeat(3, 1fr);}
+  }
+  .project-card{
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    padding:1.8rem;
+    background:var(--bg-alt);
+    border-radius:var(--radius);
+    border:1px solid rgba(26,26,26,.08);
+    transition:all .3s ease;
+    position:relative;
+    overflow:hidden;
+    min-height:240px;
+  }
+  .project-card::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:var(--ink);
+    transform:translateY(101%);
+    transition:transform .4s cubic-bezier(.7,0,.3,1);
+    z-index:0;
+  }
+  .project-card > *{position:relative; z-index:1;}
+  .project-card:hover{
+    border-color:var(--ink);
+    transform:translateY(-4px);
+  }
+  .project-card:hover::after{transform:translateY(0);}
+  .project-card:hover *{color:var(--bg);}
+  .project-card:hover .project-tag{
+    background:var(--accent);
+    color:var(--bg);
+    border-color:var(--accent);
+  }
+  .project-card:hover .project-arrow{
+    color:var(--accent);
+    transform:translate(4px, -4px);
+  }
+
+  .project-tag{
+    display:inline-block;
+    font-size:.7rem;
+    text-transform:uppercase;
+    letter-spacing:.12em;
+    padding:.3rem .7rem;
+    border:1px solid var(--ink);
+    border-radius:999px;
+    margin-bottom:1.5rem;
+    width:fit-content;
+    font-weight:500;
+    transition:all .3s ease;
+  }
+  .project-name{
+    font-family:'Fraunces', serif;
+    font-size:1.55rem;
+    font-weight:400;
+    line-height:1.1;
+    margin-bottom:.5rem;
+    transition:color .3s;
+  }
+  .project-desc{
+    color:var(--ink-soft);
+    font-size:.9rem;
+    transition:color .3s;
+    margin-bottom:1.2rem;
+    line-height:1.5;
+  }
+  .project-arrow{
+    font-size:1.3rem;
+    align-self:flex-end;
+    transition:all .3s ease;
+  }
+
+  /* ===== ABOUT ===== */
+  .about-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:3rem;
+  }
+  @media(min-width:900px){
+    .about-grid{
+      grid-template-columns:1.4fr 1fr;
+      gap:5rem;
+    }
+  }
+  .about-text p{
+    font-size:1.05rem;
+    color:var(--ink-soft);
+    margin-bottom:1.3rem;
+    line-height:1.7;
+  }
+  .about-text p:first-child{
+    font-family:'Fraunces', serif;
+    font-size:clamp(1.25rem, 2vw, 1.55rem);
+    font-weight:300;
+    color:var(--ink);
+    line-height:1.35;
+  }
+  .about-text strong{
+    color:var(--ink);
+    font-weight:600;
+  }
+
+  .about-meta{
+    border-top:1px solid rgba(26,26,26,.15);
+    padding-top:1.5rem;
+  }
+  .meta-item{
+    display:flex;
+    justify-content:space-between;
+    gap:1rem;
+    padding:.9rem 0;
+    border-bottom:1px solid rgba(26,26,26,.1);
+    font-size:.92rem;
+  }
+  .meta-item .key{
+    color:var(--ink-mute);
+    text-transform:uppercase;
+    font-size:.72rem;
+    letter-spacing:.1em;
+    font-weight:500;
+    padding-top:.15rem;
+  }
+  .meta-item .val{
+    text-align:right;
+    font-weight:500;
+  }
+  .meta-item .val em{
+    font-family:'Fraunces', serif;
+    color:var(--accent);
+    font-style:italic;
+    font-weight:400;
+  }
+
+  /* ===== EXPERIENCE TIMELINE ===== */
+  .timeline{position:relative;}
+  @media(min-width:700px){
+    .timeline{padding-left:2rem;}
+    .timeline::before{
+      content:"";
+      position:absolute;
+      left:0; top:.5rem; bottom:.5rem;
+      width:1px;
+      background:rgba(26,26,26,.15);
+    }
+  }
+  .role{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:1.2rem;
+    padding:2.2rem 0;
+    border-bottom:1px solid rgba(26,26,26,.1);
+    position:relative;
+  }
+  @media(min-width:700px){
+    .role{
+      grid-template-columns:170px 1fr;
+      gap:2.5rem;
+    }
+    .role::before{
+      content:"";
+      position:absolute;
+      left:-2.35rem; top:2.7rem;
+      width:11px; height:11px;
+      background:var(--bg);
+      border:2px solid var(--ink);
+      border-radius:50%;
+      transition:all .3s ease;
+    }
+    .role:hover::before{
+      background:var(--accent);
+      border-color:var(--accent);
+      transform:scale(1.3);
+    }
+  }
+  .role:first-child{padding-top:0;}
+  .role:first-child::before{top:.5rem;}
+  .role:last-child{border-bottom:none; padding-bottom:0;}
+
+  .role-period{
+    font-family:'Fraunces', serif;
+    font-size:.95rem;
+    font-style:italic;
+    color:var(--accent);
+    margin-bottom:.3rem;
+    font-weight:500;
+  }
+  .role-company{
+    font-size:.75rem;
+    text-transform:uppercase;
+    letter-spacing:.1em;
+    color:var(--ink-mute);
+    font-weight:600;
+  }
+  .role-title{
+    font-family:'Fraunces', serif;
+    font-size:clamp(1.3rem, 2.3vw, 1.7rem);
+    font-weight:400;
+    margin-bottom:.9rem;
+    letter-spacing:-.01em;
+    line-height:1.15;
+  }
+  .role-list{
+    list-style:none;
+  }
+  .role-list li{
+    position:relative;
+    padding-left:1.3rem;
+    margin-bottom:.6rem;
+    color:var(--ink-soft);
+    line-height:1.55;
+    font-size:.97rem;
+  }
+  .role-list li::before{
+    content:"→";
+    position:absolute;
+    left:0;
+    color:var(--accent);
+    font-weight:600;
+  }
+
+  /* ===== EDUCATION ===== */
+  .edu-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:1.25rem;
+  }
+  @media(min-width:700px){
+    .edu-grid{grid-template-columns:1fr 1fr;}
+  }
+  .edu-card{
+    padding:2rem 2.2rem;
+    background:var(--bg-alt);
+    border-radius:var(--radius);
+    border:1px solid rgba(26,26,26,.08);
+    position:relative;
+    overflow:hidden;
+  }
+  .edu-card::before{
+    content:"";
+    position:absolute;
+    top:0; left:0;
+    width:3px; height:100%;
+    background:var(--accent);
+  }
+  .edu-degree{
+    font-family:'Fraunces', serif;
+    font-size:1.3rem;
+    line-height:1.2;
+    margin-bottom:.4rem;
+    font-weight:500;
+  }
+  .edu-school{
+    color:var(--ink-soft);
+    font-size:.92rem;
+  }
+
+  /* ===== STAGE ===== */
+  .stage{
+    background:var(--ink);
+    color:var(--bg);
+    padding:5rem 0;
+    position:relative;
+    overflow:hidden;
+  }
+  @media(min-width:900px){.stage{padding:7rem 0;}}
+  .stage::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+      radial-gradient(circle at 85% 15%, rgba(232,71,43,.25) 0%, transparent 45%),
+      radial-gradient(circle at 15% 85%, rgba(232,71,43,.12) 0%, transparent 45%);
+    pointer-events:none;
+  }
+  .stage .container{position:relative; z-index:1;}
+  .stage .section-num{color:var(--accent-soft);}
+  .stage .section-title{color:var(--bg);}
+
+  .stage-intro{
+    max-width:42rem;
+    margin-bottom:4rem;
+  }
+  .stage-intro p{
+    font-size:1.05rem;
+    line-height:1.7;
+    color:rgba(245,241,234,.85);
+    margin-bottom:1.1rem;
+  }
+  .stage-intro p:first-child{
+    font-family:'Fraunces', serif;
+    font-size:clamp(1.25rem, 2vw, 1.55rem);
+    font-style:italic;
+    font-weight:300;
+    color:var(--bg);
+    margin-bottom:1.5rem;
+    line-height:1.4;
+  }
+
+  .stage-cols{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:3rem;
+  }
+  @media(min-width:800px){
+    .stage-cols{grid-template-columns:1fr 1fr; gap:4rem;}
+  }
+
+  /* Discipline grid - new approach for stage section */
+  .discipline-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:1.25rem;
+  }
+  @media(min-width:700px){
+    .discipline-grid{grid-template-columns:repeat(2, 1fr);}
+  }
+  @media(min-width:1000px){
+    .discipline-grid{grid-template-columns:repeat(4, 1fr);}
+  }
+  .discipline{
+    padding:2rem 1.8rem;
+    background:rgba(245,241,234,.04);
+    border:1px solid rgba(245,241,234,.12);
+    border-radius:var(--radius);
+    transition:all .3s ease;
+    position:relative;
+    overflow:hidden;
+  }
+  .discipline::before{
+    content:"";
+    position:absolute;
+    top:0; left:0;
+    width:3px; height:0;
+    background:var(--accent);
+    transition:height .4s ease;
+  }
+  .discipline:hover{
+    background:rgba(245,241,234,.07);
+    border-color:rgba(245,241,234,.2);
+    transform:translateY(-3px);
+  }
+  .discipline:hover::before{height:100%;}
+  .discipline-years{
+    font-family:'Fraunces', serif;
+    font-size:.85rem;
+    font-style:italic;
+    color:var(--accent-soft);
+    margin-bottom:1rem;
+    font-weight:500;
+    letter-spacing:.02em;
+  }
+  .discipline-name{
+    font-family:'Fraunces', serif;
+    font-size:1.55rem;
+    font-weight:400;
+    line-height:1.1;
+    margin-bottom:.8rem;
+    color:var(--bg);
+  }
+  .discipline-name em{
+    font-style:italic;
+    color:var(--bg);
+  }
+  .discipline-desc{
+    font-size:.92rem;
+    line-height:1.55;
+    color:rgba(245,241,234,.72);
+  }
+
+  /* Photo grid in About */
+  .photo-strip{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:.75rem;
+    margin-top:3rem;
+  }
+  .photo-strip .photo{
+    aspect-ratio:1/1.2;
+    background:var(--bg-alt);
+    border-radius:var(--radius);
+    overflow:hidden;
+    position:relative;
+  }
+  .photo img{
+    width:100%; height:100%;
+    object-fit:cover;
+    transition:transform .6s cubic-bezier(.2,0,.2,1);
+  }
+  .photo:hover img{transform:scale(1.04);}
+  .photo-placeholder{
+    width:100%; height:100%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:linear-gradient(135deg, var(--bg-alt) 0%, rgba(232,71,43,.1) 100%);
+    color:var(--ink-mute);
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-size:.9rem;
+    text-align:center;
+    padding:1rem;
+  }
+
+  /* Hero portrait */
+  .hero-with-photo{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:3rem;
+    align-items:center;
+  }
+  @media(min-width:900px){
+    .hero-with-photo{
+      grid-template-columns:1.5fr 1fr;
+      gap:5rem;
+    }
+  }
+  .hero-portrait{
+    aspect-ratio:4/5;
+    max-width:360px;
+    width:100%;
+    margin:0 auto;
+    background:var(--bg-alt);
+    border-radius:var(--radius);
+    overflow:hidden;
+    position:relative;
+  }
+  .hero-portrait img{
+    width:100%; height:100%;
+    object-fit:cover;
+  }
+
+  .stage-col h3{
+    font-family:'Fraunces', serif;
+    font-size:1.6rem;
+    font-weight:400;
+    margin-bottom:.3rem;
+    color:var(--bg);
+  }
+  .stage-col h3 em{
+    font-style:italic;
+    color:var(--accent-soft);
+  }
+  .stage-col .col-since{
+    font-size:.75rem;
+    text-transform:uppercase;
+    letter-spacing:.12em;
+    color:rgba(255,184,168,.7);
+    margin-bottom:1.8rem;
+    font-weight:600;
+  }
+
+  .perf-list{
+    list-style:none;
+  }
+  .perf-item{
+    display:grid;
+    grid-template-columns:auto 1fr;
+    gap:1.2rem;
+    padding:.95rem 0;
+    border-bottom:1px solid rgba(245,241,234,.12);
+    align-items:baseline;
+  }
+  .perf-year{
+    font-family:'Fraunces', serif;
+    font-size:1.15rem;
+    font-style:italic;
+    color:var(--accent-soft);
+    font-weight:400;
+    min-width:3rem;
+  }
+  .perf-name{
+    font-size:.95rem;
+    color:var(--bg);
+    font-weight:500;
+  }
+  .perf-note{
+    display:block;
+    color:rgba(245,241,234,.6);
+    font-size:.82rem;
+    font-weight:400;
+    margin-top:.15rem;
+  }
+  .stage-note{
+    margin-top:1.5rem;
+    font-size:.92rem;
+    color:rgba(245,241,234,.6);
+    font-style:italic;
+    font-family:'Fraunces', serif;
+  }
+
+  /* ===== CONTACT ===== */
+  .contact{
+    text-align:center;
+    padding:7rem 0;
+  }
+  .contact h2{
+    font-family:'Fraunces', serif;
+    font-size:clamp(2.2rem, 6vw, 4.5rem);
+    font-weight:300;
+    line-height:1;
+    letter-spacing:-.03em;
+    margin-bottom:2rem;
+  }
+  .contact h2 em{
+    font-style:italic;
+    color:var(--accent);
+  }
+  .contact-email{
+    display:inline-block;
+    font-family:'Fraunces', serif;
+    font-size:clamp(1.2rem, 2.5vw, 1.7rem);
+    font-style:italic;
+    border-bottom:2px solid var(--ink);
+    padding-bottom:.25rem;
+    transition:all .3s;
+    margin-bottom:2.5rem;
+  }
+  .contact-email:hover{
+    color:var(--accent);
+    border-color:var(--accent);
+    transform:translateY(-2px);
+  }
+  .socials{
+    display:flex;
+    justify-content:center;
+    gap:1.2rem;
+  }
+  .social-link{
+    width:44px; height:44px;
+    border:1px solid var(--ink);
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    transition:all .25s;
+  }
+  .social-link:hover{
+    background:var(--ink);
+    color:var(--bg);
+    transform:translateY(-3px);
+  }
+  .social-link svg{width:17px; height:17px;}
+
+  /* ===== FOOTER ===== */
+  footer{
+    padding:2.5rem 0;
+    border-top:1px solid rgba(26,26,26,.12);
+    text-align:center;
+    font-size:.82rem;
+    color:var(--ink-mute);
+  }
+  footer span{color:var(--accent);}
+
+  /* ===== SCROLL REVEAL ===== */
+  .reveal{
+    opacity:0;
+    transform:translateY(24px);
+    transition:opacity .8s ease, transform .8s ease;
+  }
+  .reveal.visible{
+    opacity:1;
+    transform:translateY(0);
+  }
+
+  ::selection{background:var(--accent); color:var(--bg);}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="container">
+    <a href="#" class="logo">Mónica<span>.</span>Pinto</a>
+    <div class="nav-links">
+      <a href="#projects">Projects</a>
+      <a href="#about">About</a>
+      <a href="#work">Experience</a>
+      <a href="#stage">Stage</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="container">
+    <div class="hero-with-photo">
+      <div>
+        <div class="eyebrow">
+          <span class="pulse"></span> Lisbon, Portugal
+        </div>
+        <h1>Hi, I'm <em>Mónica</em>.</h1>
+        <p class="hero-lead">
+          I work in product and consulting — helping teams frame the right problems and build solutions that actually create impact. Off the clock, I dance and do theatre. Both shape how I work.
+        </p>
+      </div>
+      <div class="hero-portrait reveal">
+        <!-- Replace src with your photo. Use a portrait or 4:5 photo. -->
+        <div class="photo-placeholder">Add your portrait photo here<br><small style="opacity:.6; font-size:.75rem; font-family:'Inter Tight'; font-style:normal;">(replace .hero-portrait content with &lt;img src="..."&gt;)</small></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-num">01</span>
+      <h2 class="section-title">A few things I've <em>built</em>.</h2>
+    </div>
+
+    <div class="projects-grid">
+      <a class="project-card reveal" href="http://cinetrip.monicappinto.com/" target="_blank" rel="noopener">
+        <div>
+          <span class="project-tag">Web · Product</span>
+          <h3 class="project-name">CineTrip</h3>
+          <p class="project-desc">A side project I designed and built — exploring travel through the lens of cinema.</p>
+        </div>
+        <div class="project-arrow">↗</div>
+      </a>
+
+      <a class="project-card reveal" href="https://www.instagram.com/staffados_prod?igsh=MWxoYWl4Zzhsem5kYg==" target="_blank" rel="noopener">
+        <div>
+          <span class="project-tag">Production · Creative</span>
+          <h3 class="project-name">Staffados</h3>
+          <p class="project-desc">A production project bringing creative ideas to life on stage and screen.</p>
+        </div>
+        <div class="project-arrow">↗</div>
+      </a>
+
+      <a class="project-card reveal" href="https://www.superprof.pt/certificada-excel-expert-explicacoes-excel-google-sheets-com-foco-automacao-templates.html" target="_blank" rel="noopener">
+        <div>
+          <span class="project-tag">Teaching · Excel</span>
+          <h3 class="project-name">Super Prof</h3>
+          <p class="project-desc">Teaching Excel and Google Sheets, with a focus on automation and templates.</p>
+        </div>
+        <div class="project-arrow">↗</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" style="background:var(--bg-alt);">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-num">02</span>
+      <h2 class="section-title">A bit <em>about me</em>.</h2>
+    </div>
+
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <p>I work at the crossroads of business, product and data — translating what clients actually need into something that ships and creates real impact.</p>
+        <p>My background is in Management and Business Analytics from <strong>Nova SBE</strong>, and my career has moved from data analysis into product and consulting leadership. I like framing problems before jumping into solutions, and I get a real kick out of turning ideas into something tangible.</p>
+        <p>Outside work, I've been dancing since I was 3 and doing theatre since 14 — which is honestly where I learned most of what makes me good at my job: discipline, reading a room, and not being scared to stand in front of one.</p>
+      </div>
+
+      <aside class="about-meta reveal">
+        <div class="meta-item">
+          <span class="key">Based in</span>
+          <span class="val">Lisbon, <em>PT</em></span>
+        </div>
+        <div class="meta-item">
+          <span class="key">Currently</span>
+          <span class="val">Product &amp; Consulting Manager</span>
+        </div>
+        <div class="meta-item">
+          <span class="key">Studied at</span>
+          <span class="val">Nova SBE</span>
+        </div>
+        <div class="meta-item">
+          <span class="key">Tools I love</span>
+          <span class="val">Power BI <em>·</em> SQL <em>·</em> Excel</span>
+        </div>
+        <div class="meta-item">
+          <span class="key">Off-hours</span>
+          <span class="val">Dance <em>·</em> Theatre</span>
+        </div>
+      </aside>
+    </div>
+
+    <div class="photo-strip reveal">
+      <div class="photo">
+        <!-- Replace with a personal/work photo -->
+        <div class="photo-placeholder">Photo 1<br><small style="opacity:.6; font-size:.7rem; font-family:'Inter Tight'; font-style:normal;">e.g. you at work</small></div>
+      </div>
+      <div class="photo">
+        <div class="photo-placeholder">Photo 2<br><small style="opacity:.6; font-size:.7rem; font-family:'Inter Tight'; font-style:normal;">e.g. dance / stage</small></div>
+      </div>
+      <div class="photo">
+        <div class="photo-placeholder">Photo 3<br><small style="opacity:.6; font-size:.7rem; font-family:'Inter Tight'; font-style:normal;">e.g. travel / personal</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WORK / EXPERIENCE -->
+<section id="work">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-num">03</span>
+      <h2 class="section-title">The path <em>so far</em>.</h2>
+    </div>
+
+    <div class="timeline">
+      <div class="role reveal">
+        <div>
+          <div class="role-period">Sep 2025 — Now</div>
+          <div class="role-company">Human-Ready</div>
+        </div>
+        <div>
+          <h3 class="role-title">Product &amp; Consulting Manager</h3>
+          <ul class="role-list">
+            <li>Lead the Product &amp; Consulting team, aligning priorities with broader business goals.</li>
+            <li>Own end-to-end client projects — from scoping and planning through delivery and follow-up.</li>
+            <li>Contribute to strategic planning and key decisions across our products and services.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="role reveal">
+        <div>
+          <div class="role-period">Sep 2023 — Aug 2025</div>
+          <div class="role-company">Human-Ready</div>
+        </div>
+        <div>
+          <h3 class="role-title">Business Consultant</h3>
+          <ul class="role-list">
+            <li>Developed and improved product features based on user and client feedback.</li>
+            <li>Worked closely with clients to tailor solutions and offer strategic guidance.</li>
+            <li>Oversaw data processes including ETL, supporting data-driven decisions.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="role reveal">
+        <div>
+          <div class="role-period">Jul 2022 — Aug 2023</div>
+          <div class="role-company">Human IT</div>
+        </div>
+        <div>
+          <h3 class="role-title">Data Analyst</h3>
+          <ul class="role-list">
+            <li>Established and led the Analytics Department from the ground up.</li>
+            <li>Built Power BI dashboards that shaped strategic decision-making.</li>
+            <li>Ran analyses to surface insights into business performance.</li>
+            <li>Automated key processes to streamline operations.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education" style="background:var(--bg-alt);">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-num">04</span>
+      <h2 class="section-title">Studied at <em>Nova SBE</em>.</h2>
+    </div>
+
+    <div class="edu-grid">
+      <div class="edu-card reveal">
+        <h3 class="edu-degree">Master's in Business Analytics</h3>
+        <p class="edu-school">Nova School of Business and Economics</p>
+      </div>
+      <div class="edu-card reveal">
+        <h3 class="edu-degree">Bachelor's in Management</h3>
+        <p class="edu-school">Nova School of Business and Economics</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STAGE -->
+<section id="stage" class="stage">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-num">05</span>
+      <h2 class="section-title">Life <em>on stage</em>.</h2>
+    </div>
+
+    <div class="stage-intro reveal">
+      <p>Performance is where I learned how to work.</p>
+      <p>Dance gave me discipline and the patience to keep repeating something until it's right. Theatre taught me how to read a room and the confidence to stand in front of one. Neither is a hobby in the casual sense — they're a serious part of who I am, and the foundation for how I show up at work.</p>
+    </div>
+
+    <div class="discipline-grid">
+      <div class="discipline reveal">
+        <div class="discipline-years">Age 3 — 17</div>
+        <h3 class="discipline-name"><em>Ballet</em></h3>
+        <p class="discipline-desc">Fourteen years of classical training — the foundation for everything that came after.</p>
+      </div>
+
+      <div class="discipline reveal">
+        <div class="discipline-years">Age 9 — Now</div>
+        <h3 class="discipline-name"><em>Traditional Dance</em></h3>
+        <p class="discipline-desc">Portuguese traditional dance — connecting to culture, community and rhythm.</p>
+      </div>
+
+      <div class="discipline reveal">
+        <div class="discipline-years">Age 14 — Now</div>
+        <h3 class="discipline-name"><em>Theatre</em></h3>
+        <p class="discipline-desc">Over a decade on stage — where I learned how to read a room and stand in front of one.</p>
+      </div>
+
+      <div class="discipline reveal">
+        <div class="discipline-years">Age 23 — Now</div>
+        <h3 class="discipline-name"><em>Contemporary</em></h3>
+        <p class="discipline-desc">A newer chapter — looser, more expressive, and still very much in progress.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact">
+  <div class="container">
+    <div class="reveal">
+      <h2>Let's <em>talk</em>.</h2>
+      <a href="mailto:monicaplpinto@gmail.com" class="contact-email">monicaplpinto@gmail.com</a>
+      <div class="socials">
+        <a href="https://www.linkedin.com/in/monicappinto" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+        </a>
+        <a href="https://github.com/monicappinto" target="_blank" rel="noopener" class="social-link" aria-label="GitHub">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.5-1.4-1.3-1.8-1.3-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.3-3.1-.2-.4-.6-1.6 0-3.2 0 0 1-.3 3.4 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.7 1.6.2 2.9.1 3.2.9.8 1.3 1.9 1.3 3.2 0 4.6-2.8 5.6-5.5 5.9.5.4.9 1.1.9 2.3v3.3c0 .3.1.7.8.6A12 12 0 0 0 12 .3"/></svg>
+        </a>
+        <a href="mailto:monicaplpinto@gmail.com" class="social-link" aria-label="Email">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    © <span id="year"></span> Mónica Pinto · Made with <span>♥</span> in Lisbon
+  </div>
+</footer>
+
+<script>
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 20);
+  });
+
+  const reveals = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  reveals.forEach(el => io.observe(el));
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
